@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<input id="input" type="text" />
+			<button id="button">Отправить</button>
+		</div>
+		<script>
+			button.onclick = () => {
+				const fetchOptions = {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ value: input.value }),
+				};
+
+				fetch('/', fetchOptions)
+					.then(() => {
+						console.log('Отправлено');
+						input.value = '';
+					})
+					.catch(() => {
+						console.log('ошибка');
+					});
+			};
+		</script>
+	</body>
+</html>
